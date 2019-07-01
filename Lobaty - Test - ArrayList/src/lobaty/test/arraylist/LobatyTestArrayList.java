@@ -11,13 +11,13 @@ public class LobatyTestArrayList {
         int valor = 0;
         while (!bandera) {
             try {
-                valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese valores numericos enteros:"));
-                if (valor > 0) {
+                valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese un valor numerico entero (Negativo si desea salir):"));
+                if (valor >= 0) {
                     elem2.add(valor);
                 } else {
                     bandera = true;
                 }
-            } catch (Exception e) {
+            } catch (Exception error) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese valores enteros.\n"
                         + "Si desea salir ingrese un valor negativo.");
             }
@@ -25,4 +25,7 @@ public class LobatyTestArrayList {
         System.out.println(elem2);
     }
 }
+
+
+
 
