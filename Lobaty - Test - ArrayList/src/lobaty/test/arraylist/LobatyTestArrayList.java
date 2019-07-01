@@ -2,6 +2,7 @@ package lobaty.test.arraylist;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 
 public class LobatyTestArrayList {
 
@@ -10,7 +11,7 @@ public class LobatyTestArrayList {
         // ArrayList elem = new ArrayList();
         ArrayList<Integer> elem2 = new ArrayList();
         boolean bandera = false;
-        int valor = 0;
+        int valor;
         Scanner teclado = new Scanner(System.in);
         /*System.out.println("Agregue algo:");
         elem.add("Perro");
@@ -29,8 +30,11 @@ public class LobatyTestArrayList {
             }
         }
         System.out.println(elem2);
+
+      //  valor = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese un valor entero:"));
+        
+        
     }
 }
-
 
 
