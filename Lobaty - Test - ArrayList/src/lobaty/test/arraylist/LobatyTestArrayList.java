@@ -1,40 +1,28 @@
 package lobaty.test.arraylist;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 
 public class LobatyTestArrayList {
 
     public static void main(String[] args) {
-        //System.out.println("Damn bruh this is hard");
-        // ArrayList elem = new ArrayList();
         ArrayList<Integer> elem2 = new ArrayList();
         boolean bandera = false;
-        int valor;
-        Scanner teclado = new Scanner(System.in);
-        /*System.out.println("Agregue algo:");
-        elem.add("Perro");
-        elem.add(4);
-        elem.add(7);
-        System.out.println(elem);
-         */
-        System.out.println("Ingrese todos los valores positivos que desee ( para salir ingrese un valor negativo) : ");
+        int valor = 0;
         while (!bandera) {
-            valor = teclado.nextInt();
-            if (valor > 0) {
-                elem2.add(valor);
-
-            } else {
-                bandera = true;
+            try {
+                valor = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese valores numericos enteros:"));
+                if (valor > 0) {
+                    elem2.add(valor);
+                } else {
+                    bandera = true;
+                }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese valores enteros.\n"
+                        + "Si desea salir ingrese un valor negativo.");
             }
         }
         System.out.println(elem2);
-
-      //  valor = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingrese un valor entero:"));
-        
-        
     }
 }
-
 
