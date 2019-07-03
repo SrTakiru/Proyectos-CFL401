@@ -7,6 +7,7 @@ public class LobatyTestArrayList {
 
     public static void main(String[] args) {
         // Funcionar funciona, no es perfecto
+        /*
         ArrayList<Integer> elem2 = new ArrayList();
         boolean bandera = false;
         int valor = 0;
@@ -23,12 +24,12 @@ public class LobatyTestArrayList {
                         + "Si desea salir ingrese un valor negativo.");
             }
         }
-        System.out.println(elem2);
+        System.out.println(elem2);*/
+        ArrayList<Mascotas> mascotas = new ArrayList();
+        Mascotas perro1 = new Mascotas("Baxter", 11, 2);
+        mascotas.add(perro1);
+        System.out.println(mascotas);
     }
 }
-
-
-
-
 
 
