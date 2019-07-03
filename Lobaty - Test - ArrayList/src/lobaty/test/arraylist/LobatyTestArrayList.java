@@ -1,4 +1,5 @@
 package lobaty.test.arraylist;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -6,20 +7,19 @@ public class LobatyTestArrayList {
 
     public static void main(String[] args) {
         ArrayList<Mascotas> mascotas = new ArrayList();
-        boolean bandera = false;
+        int age, legs;
+        String name = JOptionPane.showInputDialog(null, "Nombre de mascota: ", "Mascotas", JOptionPane.DEFAULT_OPTION);
         try {
-            while (!bandera) {
-                String name = JOptionPane.showInputDialog(null, "Nombre de mascota: ", "Mascotas", JOptionPane.DEFAULT_OPTION);
-                if (!name.equals("salir")) {
-                    int age = Integer.parseInt(JOptionPane.showInputDialog(null, "Edad de la mascota: ", "Mascotas", JOptionPane.DEFAULT_OPTION));
-                    int legs = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de patas: ", "Mascotas", JOptionPane.DEFAULT_OPTION));
-                    mascotas.add(new Mascotas(name, age, legs));
-                } else {
-                    bandera = true;
-                }
+            while (!name.toUpperCase().equals("salir".toUpperCase())) {
+                age = Integer.parseInt(JOptionPane.showInputDialog(null, "Edad de la mascota: ", "Mascotas", JOptionPane.DEFAULT_OPTION));
+                legs = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de patas: ", "Mascotas", JOptionPane.DEFAULT_OPTION));
+                mascotas.add(new Mascotas(name, age, legs));
+
+                name = JOptionPane.showInputDialog(null, "Nombre de mascota: ", "Mascotas", JOptionPane.DEFAULT_OPTION);
             }
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Le pifiaste mijo", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "ERROR! \n"
+                    + "Valor ingresado invalido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
         JOptionPane.showMessageDialog(null, mascotas);
     }
@@ -55,7 +55,6 @@ public class LobatyTestArrayList {
             }
         }
         System.out.println(elem2);*/
-
 
 
 
