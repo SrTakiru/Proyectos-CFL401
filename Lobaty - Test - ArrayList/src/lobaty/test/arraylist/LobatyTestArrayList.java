@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 public class LobatyTestArrayList {
 
     public static void main(String[] args) {
+        // Funcionar funciona, no es perfecto
         ArrayList<Integer> elem2 = new ArrayList();
         boolean bandera = false;
         int valor = 0;
@@ -25,6 +26,8 @@ public class LobatyTestArrayList {
         System.out.println(elem2);
     }
 }
+
+
 
 
 
