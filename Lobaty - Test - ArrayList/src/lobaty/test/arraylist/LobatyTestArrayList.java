@@ -1,6 +1,4 @@
 package lobaty.test.arraylist;
-
-import static java.lang.Thread.sleep;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -16,7 +14,6 @@ public class LobatyTestArrayList {
                     int age = Integer.parseInt(JOptionPane.showInputDialog(null, "Edad de la mascota: ", "Mascotas", JOptionPane.DEFAULT_OPTION));
                     int legs = Integer.parseInt(JOptionPane.showInputDialog(null, "Numero de patas: ", "Mascotas", JOptionPane.DEFAULT_OPTION));
                     mascotas.add(new Mascotas(name, age, legs));
-                    sleep(750);
                 } else {
                     bandera = true;
                 }
@@ -58,5 +55,8 @@ public class LobatyTestArrayList {
             }
         }
         System.out.println(elem2);*/
+
+
+
 
 
