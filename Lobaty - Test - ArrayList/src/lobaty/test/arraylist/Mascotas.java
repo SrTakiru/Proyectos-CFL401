@@ -1,7 +1,9 @@
 package lobaty.test.arraylist;
+
 public class Mascotas {
-private String nombre;
-private int edad;
+
+    private String nombre;
+    private int edad;
 
     public Mascotas(String nombre, int edad, int patas) {
         this.nombre = nombre;
@@ -32,7 +34,8 @@ private int edad;
     public void setPatas(int patas) {
         this.patas = patas;
     }
-private int patas;
+
+    private int patas;
 
 }
 
