@@ -4,6 +4,7 @@ public class Mascotas {
 
     private String nombre;
     private int edad;
+    private int patas;
 
     public Mascotas(String nombre, int edad, int patas) {
         this.nombre = nombre;
@@ -34,9 +35,5 @@ public class Mascotas {
     public void setPatas(int patas) {
         this.patas = patas;
     }
-
-    private int patas;
-
 }
-
 

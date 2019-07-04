@@ -1,6 +1,8 @@
 package lobaty.test.arraylist;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class LobatyTestArrayList {
@@ -21,7 +23,16 @@ public class LobatyTestArrayList {
             JOptionPane.showMessageDialog(null, "ERROR! \n"
                     + "Valor ingresado invalido.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        JOptionPane.showMessageDialog(null, mascotas);
+        //JOptionPane.showMessageDialog(null, mascotas);
+        Iterator it = mascotas.iterator();
+        while (it.hasNext()) {
+            //Mascotas mascota = it.next();
+            Mascotas mascota = (Mascotas) it.next();
+            JOptionPane.showMessageDialog(null,"Nombre de la mascota " + (mascota.getNombre()) + "\n"
+                    + "Edad de la mascota: " + (mascota.getEdad()) + "\n"
+                    + "Patas de dicha mascota:" + (mascota.getPatas()),"Informacion de Mascota",JOptionPane.DEFAULT_OPTION);
+
+        }
     }
 }
 
@@ -55,7 +66,5 @@ public class LobatyTestArrayList {
             }
         }
         System.out.println(elem2);*/
-
-
 
 
