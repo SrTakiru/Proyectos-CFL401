@@ -14,7 +14,7 @@ public class Mascotas {
 
     /**
      * El metodo getNombre es para conseguir / leer el nombre del objeto en cuestion.
-     * @return el nombre
+     * @return Nombre en esta variable se almacena un String
      */
     public String getNombre() {
         return nombre;
@@ -40,5 +40,6 @@ public class Mascotas {
         this.patas = patas;
     }
 }
+
 
 
