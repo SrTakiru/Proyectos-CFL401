@@ -15,8 +15,15 @@ public class LobatyTestProyecto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        String nombre;
+        VentanaPrincipal ventana = new VentanaPrincipal();
+        ventana.setVisible(true);
+        ventana.getAll();     
+        //System.out.println();
     }
-    
+
 }
+
+
+
 
