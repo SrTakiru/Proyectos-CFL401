@@ -27,12 +27,16 @@ public class Persona {
     public Persona(String nombre, int edad) {
         this.nombre = nombre;
         this.edad = edad;
+        mascotas = new ArrayList();
     }
 
-    public int agregarMascota(Mascotas mascota) {
+    public void agregarMascota(Mascotas mascota) {
         mascotas.add(mascota);
+    }
+
+    public int cuantasMascotasTenes() {
         return mascotas.size();
     }
-
 }
+
 
