@@ -13,7 +13,8 @@ public class LobatyTestArchivos {
         FileWriter file = null;
         PrintWriter escritor = null;
         try {
-            file = new FileWriter("C:\\Users\\Programación\\Downloads\\JavaNetBeans.txt", true);//el "False" O "True" es para soobrescribir lo anterior o seguir escribiendo en la misma hoja
+            file = new FileWriter("C:\\Users\\Programación\\Downloads\\JavaNetBeans.txt", true);
+            //el "False" O "True" es para sobrescribir lo anterior o seguir escribiendo en la misma hoja
             escritor = new PrintWriter(file);
             escritor.println("Muy bien!");
             escritor.flush();
@@ -45,20 +46,9 @@ public class LobatyTestArchivos {
     public static void main(String[] args) throws IOException {
         escribirArchivoTexto();
         leerArchivoTexto();
+        VentanaLogin ventana = new VentanaLogin();
+        ventana.setVisible(true);
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
