@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.swing.JFrame;
 
 public class LobatyTestArchivos {
 
@@ -44,9 +45,10 @@ public class LobatyTestArchivos {
     }
 
     public static void main(String[] args) throws IOException {
-        escribirArchivoTexto();
-        leerArchivoTexto();
+        //   escribirArchivoTexto();
+        //  leerArchivoTexto();
         VentanaLogin ventana = new VentanaLogin();
+        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
     }
 
