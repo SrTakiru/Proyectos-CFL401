@@ -45,12 +45,28 @@ public class LobatyTestArchivos {
     }
 
     public static void main(String[] args) throws IOException {
-        //   escribirArchivoTexto();
-        //  leerArchivoTexto();
-        VentanaLogin ventana = new VentanaLogin();
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        ventana.setVisible(true);
+//        //   escribirArchivoTexto();
+//          leerArchivoTexto();
+        mostrarLogin();
     }
 
+    public static void mostrarLogin() {
+        VentanaLogin login = new VentanaLogin();
+        login.setLocationRelativeTo(null);
+        login.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        login.setVisible(true);
+    }
+
+    public static void mostrarVentanaPrincipal() {
+        Ventana ventanaPrincipal = new Ventana();
+        ventanaPrincipal.setLocationRelativeTo(null);
+        ventanaPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventanaPrincipal.setVisible(true);
+
+    }
 }
+
+
+
+
 
