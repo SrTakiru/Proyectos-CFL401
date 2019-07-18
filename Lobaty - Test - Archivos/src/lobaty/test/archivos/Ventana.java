@@ -169,19 +169,12 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadKeyTyped
+        if (puedoEscribirLetra(evt)) {
 
-        if ((edad.getText().length() == 0) || Integer.parseInt(edad.getText()) <= 99) {
-            if (puedoEscribirLetra(evt)) {
-                // System.out.println(evt.getKeyChar());          
-            } else {
-                edad.setBackground(Color.RED);
-                evt.consume();
-            }
         } else {
             edad.setBackground(Color.RED);
             evt.consume();
         }
-
 // TODO add your handling code here:
     }//GEN-LAST:event_edadKeyTyped
 
@@ -245,9 +238,14 @@ public class Ventana extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private boolean puedoEscribirLetra(KeyEvent evt) {
-        if ((evt.getKeyChar() >= '0' && evt.getKeyChar() <= '9') && ((edad.getText().length() <= 2))) {
+        if ((evt.getKeyChar() >= 48
+                && evt.getKeyChar() <= 57)
+                && (edad.getText().length() <= 2)
+                && (edad.getText().length() == 0
+                || Integer.parseInt(edad.getText() + evt.getKeyChar()) <= 99)) {
             return true;
         } else {
+            evt.consume();
             return false;
         }
     }
