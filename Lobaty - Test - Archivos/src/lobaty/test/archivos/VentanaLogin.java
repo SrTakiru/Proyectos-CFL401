@@ -196,7 +196,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         FileReader file = null;
         BufferedReader lector = null;
         try {
-            file = new FileReader("C:\\Users\\Programación\\Downloads\\users.txt");
+            file = new FileReader("users.txt");
             lector = new BufferedReader(file);
             String texto = lector.readLine();
             while (texto != null) {

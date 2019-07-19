@@ -65,6 +65,30 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel7.setText("Edad");
 
+        nombreArchivo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreArchivoKeyTyped(evt);
+            }
+        });
+
+        nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                nombreKeyTyped(evt);
+            }
+        });
+
+        usuario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                usuarioKeyTyped(evt);
+            }
+        });
+
+        apellido.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                apellidoKeyTyped(evt);
+            }
+        });
+
         edad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 edadKeyTyped(evt);
@@ -169,6 +193,7 @@ public class Ventana extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadKeyTyped
+
         if (puedoEscribirLetra(evt)) {
 
         } else {
@@ -181,6 +206,46 @@ public class Ventana extends javax.swing.JFrame {
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void nombreArchivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreArchivoKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nombreArchivoKeyTyped
+
+    private void usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioKeyTyped
+
+    private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
+        // TODO add your handling code here:
+        String letraMayusc;
+        if (puedoEscribir(evt)) {
+            nombreArchivo.setBackground(Color.WHITE);
+            if (nombreArchivo.getText().length() == 1) {
+
+                letraMayusc = nombreArchivo.getText().toUpperCase();
+                nombreArchivo.setText(letraMayusc);
+            }
+        } else {
+            nombreArchivo.setBackground(Color.RED);
+            evt.consume();
+        }
+    }//GEN-LAST:event_nombreKeyTyped
+
+    private void apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyTyped
+        // TODO add your handling code here:
+        String letraMayusc;
+        if (puedoEscribir(evt)) {
+            nombreArchivo.setBackground(Color.WHITE);
+            if (nombreArchivo.getText().length() == 1) {
+
+                letraMayusc = nombreArchivo.getText().toUpperCase();
+                nombreArchivo.setText(letraMayusc);
+            }
+        } else {
+            nombreArchivo.setBackground(Color.RED);
+            evt.consume();
+        }
+    }//GEN-LAST:event_apellidoKeyTyped
 
     /**
      * @param args the command line arguments
@@ -248,5 +313,15 @@ public class Ventana extends javax.swing.JFrame {
             evt.consume();
             return false;
         }
+    }
+
+    private boolean puedoEscribir(KeyEvent evt) {
+
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122) && (nombreArchivo.getText().length() <= 9)) {
+            return true;
+        } else {
+            return false;
+        }
+
     }
 }
