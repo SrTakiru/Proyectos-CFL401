@@ -130,6 +130,7 @@ public class VentanaLogin extends javax.swing.JFrame {
         if (corroborarUsuarioContra(user, pass)) {//Si el login es True
             okay.setText("Entro Correctamente");//Muestra un mensaje de correcto
             LobatyTestArchivos.mostrarVentanaPrincipal();
+            dispose();
         } else {
             okay.setText("Error de login");
             usuario.setBackground(Color.red);
@@ -141,6 +142,8 @@ public class VentanaLogin extends javax.swing.JFrame {
 
     private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
         // TODO add your handling code here:
+        dispose();
+
     }//GEN-LAST:event_btnSalirMouseClicked
     /**
      * @param args the command line arguments

@@ -7,6 +7,14 @@ package lobaty.test.archivos;
 
 import java.awt.Color;
 import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,6 +38,7 @@ public class Ventana extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -47,6 +56,19 @@ public class Ventana extends javax.swing.JFrame {
         edad = new javax.swing.JTextField();
         btnAgregar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        email2 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        compNomArchiv = new javax.swing.JTextField();
+        compNombUser = new javax.swing.JTextField();
+        compNombPass = new javax.swing.JTextField();
+        revisarDatos = new javax.swing.JButton();
+        btnSalir2 = new javax.swing.JButton();
+        mostrarArchivo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -71,6 +93,12 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
 
+        contrasenia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                contraseniaKeyTyped(evt);
+            }
+        });
+
         nombre.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 nombreKeyTyped(evt);
@@ -80,6 +108,12 @@ public class Ventana extends javax.swing.JFrame {
         usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 usuarioKeyTyped(evt);
+            }
+        });
+
+        email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                emailKeyTyped(evt);
             }
         });
 
@@ -96,6 +130,11 @@ public class Ventana extends javax.swing.JFrame {
         });
 
         btnAgregar.setText("Agregar");
+        btnAgregar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAgregarMouseClicked(evt);
+            }
+        });
 
         btnSalir.setText("Salir");
         btnSalir.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,6 +142,16 @@ public class Ventana extends javax.swing.JFrame {
                 btnSalirMouseClicked(evt);
             }
         });
+
+        email2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                email2KeyTyped(evt);
+            }
+        });
+
+        jLabel8.setText("@");
+
+        jLabel9.setText(".com");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -127,50 +176,137 @@ public class Ventana extends javax.swing.JFrame {
                     .addComponent(nombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(usuario)
                     .addComponent(contrasenia))
-                .addGap(72, 72, 72)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAgregar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnSalir, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap())
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(email2, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel9)
+                            .addGap(47, 47, 47))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(btnSalir)
+                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAgregar)
+                        .addContainerGap())))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(nombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel7)
-                    .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 6, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnAgregar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnSalir)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(nombreArchivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel2)
+                            .addComponent(usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(apellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(email2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel7)
+                            .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnSalir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAgregar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 164, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+
+        jTabbedPane1.addTab("Agregar datos", jPanel1);
+
+        jLabel10.setText("Nombre de archivo");
+
+        jLabel11.setText("Usuario");
+
+        jLabel12.setText("Contraseña");
+
+        revisarDatos.setText("Revisar datos");
+        revisarDatos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                revisarDatosMouseClicked(evt);
+            }
+        });
+
+        btnSalir2.setText("Salir");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(compNomArchiv, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                            .addComponent(compNombUser)
+                            .addComponent(compNombPass))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(revisarDatos)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 210, Short.MAX_VALUE)
+                        .addComponent(btnSalir2)))
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(compNomArchiv, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(compNombUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(compNombPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(revisarDatos)
+                    .addComponent(btnSalir2))
+                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("Revisar Datos de usuario", jPanel2);
+
+        mostrarArchivo.setEditable(false);
+        mostrarArchivo.setColumns(20);
+        mostrarArchivo.setRows(5);
+        jTabbedPane1.addTab("Mostrar Texto", mostrarArchivo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -178,74 +314,137 @@ public class Ventana extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void email2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_email2KeyTyped
+        // TODO add your handling code here:
+        if (puedoEscribirEmail2(evt)) {
+            email2.setBackground(Color.WHITE);
+        } else {
+            email2.setBackground(Color.red);
+            evt.consume();
+        }
+    }//GEN-LAST:event_email2KeyTyped
+
+    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirMouseClicked
+
+    private void btnAgregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAgregarMouseClicked
+        // TODO add your handling code here:
+        if (posibleCrearArchivo(evt)) {
+            JOptionPane.showMessageDialog(null, "El archivo " + nombreArchivo.getText() + " ah sido creado de manera exitosa!", "Creacion de archivo", JOptionPane.DEFAULT_OPTION);
+        } else {
+            JOptionPane.showMessageDialog(null, "El archivo No puedo ser creado.", "Creacion de archivo", JOptionPane.ERROR_MESSAGE);
+
+        }
+    }//GEN-LAST:event_btnAgregarMouseClicked
+
     private void edadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edadKeyTyped
-
         if (puedoEscribirLetra(evt)) {
-
+            edad.setBackground(Color.WHITE);
         } else {
             edad.setBackground(Color.RED);
             evt.consume();
         }
-// TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_edadKeyTyped
 
-    private void btnSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSalirMouseClicked
+    private void apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnSalirMouseClicked
+        String letraMayusc;
+        if (puedoEscribirApell(evt)) {
+            apellido.setBackground(Color.WHITE);
+            if (apellido.getText().length() == 1) {
 
-    private void nombreArchivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreArchivoKeyTyped
+                letraMayusc = apellido.getText().toUpperCase();
+                apellido.setText(letraMayusc);
+            }
+        } else {
+            apellido.setBackground(Color.RED);
+            evt.consume();
+        }
+    }//GEN-LAST:event_apellidoKeyTyped
+
+    private void emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailKeyTyped
         // TODO add your handling code here:
-    }//GEN-LAST:event_nombreArchivoKeyTyped
+        if (puedoEscribirEmail(evt)) {
+            email.setBackground(Color.WHITE);
+
+        } else {
+            email.setBackground(Color.red);
+            evt.consume();
+        }
+    }//GEN-LAST:event_emailKeyTyped
 
     private void usuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioKeyTyped
         // TODO add your handling code here:
+        if (puedoEscribirUsuario(evt)) {
+            usuario.setBackground(Color.WHITE);
+        } else {
+            usuario.setBackground(Color.RED);
+            evt.consume();
+        }
     }//GEN-LAST:event_usuarioKeyTyped
 
     private void nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreKeyTyped
         // TODO add your handling code here:
         String letraMayusc;
-        if (puedoEscribir(evt)) {
-            nombreArchivo.setBackground(Color.WHITE);
-            if (nombreArchivo.getText().length() == 1) {
+        if (puedoEscribirNom(evt)) {
+            nombre.setBackground(Color.WHITE);
+            if (nombre.getText().length() == 1) {
 
-                letraMayusc = nombreArchivo.getText().toUpperCase();
-                nombreArchivo.setText(letraMayusc);
+                letraMayusc = nombre.getText().toUpperCase();
+                nombre.setText(letraMayusc);
             }
         } else {
-            nombreArchivo.setBackground(Color.RED);
+            nombre.setBackground(Color.RED);
             evt.consume();
         }
     }//GEN-LAST:event_nombreKeyTyped
 
-    private void apellidoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_apellidoKeyTyped
-        // TODO add your handling code here:
-        String letraMayusc;
-        if (puedoEscribir(evt)) {
-            nombreArchivo.setBackground(Color.WHITE);
-            if (nombreArchivo.getText().length() == 1) {
+    private void contraseniaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contraseniaKeyTyped
 
-                letraMayusc = nombreArchivo.getText().toUpperCase();
-                nombreArchivo.setText(letraMayusc);
-            }
+        // TODO add your handling code here:
+        if (puedoEscribirContra(evt)) {
+            contrasenia.setBackground(Color.WHITE);
+        } else {
+            contrasenia.setBackground(Color.RED);
+            evt.consume();
+        }
+    }//GEN-LAST:event_contraseniaKeyTyped
+
+    private void nombreArchivoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nombreArchivoKeyTyped
+        // TODO add your handling code here:
+        if (puedoEscribirNomArc(evt)) {
+            nombreArchivo.setBackground(Color.WHITE);
         } else {
             nombreArchivo.setBackground(Color.RED);
             evt.consume();
         }
-    }//GEN-LAST:event_apellidoKeyTyped
+    }//GEN-LAST:event_nombreArchivoKeyTyped
+
+    private void revisarDatosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_revisarDatosMouseClicked
+        // TODO add your handling code here:
+        if (datosCorrectos(evt)) {
+            escribirDatos();
+        } else {
+            System.out.println("FUCK");
+        }
+    }//GEN-LAST:event_revisarDatosMouseClicked
 
     /**
      * @param args the command line arguments
@@ -264,13 +463,17 @@ public class Ventana extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Ventana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Ventana.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -286,19 +489,33 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JTextField apellido;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnSalir2;
+    private javax.swing.JTextField compNomArchiv;
+    private javax.swing.JTextField compNombPass;
+    private javax.swing.JTextField compNombUser;
     private javax.swing.JTextField contrasenia;
     private javax.swing.JTextField edad;
     private javax.swing.JTextField email;
+    private javax.swing.JTextField email2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextArea mostrarArchivo;
     private javax.swing.JTextField nombre;
     private javax.swing.JTextField nombreArchivo;
+    private javax.swing.JButton revisarDatos;
     private javax.swing.JTextField usuario;
     // End of variables declaration//GEN-END:variables
 
@@ -315,13 +532,133 @@ public class Ventana extends javax.swing.JFrame {
         }
     }
 
-    private boolean puedoEscribir(KeyEvent evt) {
+    private boolean puedoEscribirNomArc(KeyEvent evt) {
 
-        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122) && (nombreArchivo.getText().length() <= 9)) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122
+                || evt.getKeyChar() >= 48 && evt.getKeyChar() <= 57
+                || evt.getKeyChar() >= 65 && evt.getKeyChar() <= 90)
+                && (nombreArchivo.getText().length() <= 9)) {
             return true;
         } else {
             return false;
         }
 
+    }
+
+    private boolean puedoEscribirNom(KeyEvent evt) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122)
+                && (nombre.getText().length() <= 9)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean puedoEscribirApell(KeyEvent evt) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122)
+                && (apellido.getText().length() <= 9)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean puedoEscribirUsuario(KeyEvent evt) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122
+                || evt.getKeyChar() >= 48 && evt.getKeyChar() <= 57
+                || evt.getKeyChar() >= 65 && evt.getKeyChar() <= 90)
+                && (usuario.getText().length() <= 15)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean puedoEscribirContra(KeyEvent evt) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122
+                || evt.getKeyChar() >= 48 && evt.getKeyChar() <= 57
+                || evt.getKeyChar() >= 65 && evt.getKeyChar() <= 90)
+                && (contrasenia.getText().length() <= 15)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean posibleCrearArchivo(MouseEvent evt) {
+        FileWriter file = null;
+        PrintWriter escritor = null;
+        try {
+            file = new FileWriter(nombreArchivo.getText() + ".txt", true);
+            //el "False" O "True" es para sobrescribir lo anterior o seguir escribiendo en la misma hoja
+            escritor = new PrintWriter(file);
+            escritor.println(usuario.getText() + "x" + contrasenia.getText() + "x" + nombre.getText() + "x" + apellido.getText() + "x" + email.getText() + "@" + email2.getText() + ".com" + "x" + edad.getText());
+            escritor.flush();
+            escritor.close();
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+
+    private boolean puedoEscribirEmail(KeyEvent evt) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122
+                || evt.getKeyChar() >= 48 && evt.getKeyChar() <= 57
+                || evt.getKeyChar() >= 65 && evt.getKeyChar() <= 90)
+                && (email.getText().length() <= 14)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean puedoEscribirEmail2(KeyEvent evt) {
+        if ((evt.getKeyChar() >= 97 && evt.getKeyChar() <= 122
+                || evt.getKeyChar() >= 48 && evt.getKeyChar() <= 57
+                || evt.getKeyChar() >= 65 && evt.getKeyChar() <= 90)
+                && (email2.getText().length() <= 9)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private boolean datosCorrectos(MouseEvent evt) {
+        FileReader file = null;
+        BufferedReader lector = null;
+        try {
+            file = new FileReader(compNomArchiv.getText() + ".txt");
+            lector = new BufferedReader(file);
+            String texto = lector.readLine();
+            while (texto != null) {
+                if (compNombUser.getText().equals(texto.split("x")[0]) && compNombPass.getText().equals(texto.split("x")[1])) {
+                    return true;
+                }
+                texto = lector.readLine();
+            }
+            lector.close();
+            System.out.println(compNomArchiv.getText());
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return false;
+    }
+
+    private void escribirDatos() {
+        FileReader file = null;
+        BufferedReader lector = null;
+        try {
+            file = new FileReader(compNomArchiv.getText() + ".txt");
+            lector = new BufferedReader(file);
+            String texto = lector.readLine();
+            while (texto != null) {
+                texto = lector.readLine();
+            }
+            mostrarArchivo.append(texto);
+            lector.close();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }

@@ -3,25 +3,24 @@ package lobaty.test.archivos;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.swing.JFrame;
 
 public class LobatyTestArchivos {
-
+/*
     private static void escribirArchivoTexto() {
-        FileWriter file = null;
+FileWriter file = null;
         PrintWriter escritor = null;
         try {
-            file = new FileWriter("users.txt", false);
+            file = new FileWriter("users.txt", true);
             //el "False" O "True" es para sobrescribir lo anterior o seguir escribiendo en la misma hoja
             escritor = new PrintWriter(file);
-            escritor.println("lulxlul");
+            escritor.println("DIOS!");
             escritor.flush();
             escritor.close();
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
+            return true;
+        } catch (IOException e) {
+            return false;
         }
     }
 
@@ -43,11 +42,11 @@ public class LobatyTestArchivos {
             System.out.println(ex.getMessage());
         }
     }
-
+*/
     public static void main(String[] args) throws IOException {
-         escribirArchivoTexto();
+        //escribirArchivoTexto();
         // leerArchivoTexto();
-         mostrarLogin();
+        mostrarLogin();
     }
 
     public static void mostrarLogin() {
@@ -65,3 +64,6 @@ public class LobatyTestArchivos {
 
     }
 }
+
+
+
