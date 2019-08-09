@@ -5,6 +5,8 @@
  */
 package lobaty.pkg20190805.j042;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Programación
@@ -16,18 +18,18 @@ public class Persona {
     private String apellido;
     private int edad;
     private int dni;
-    private Mascota[] mascotas;
+    private ArrayList<Mascota> mascotas;
 
-    public Mascota[] getMascotas() {
+    public ArrayList<Mascota> getMascotas() {
         return mascotas;
+    }
+
+    public void setMascotas(Mascota mascota) {
+        this.mascotas.add(mascota);
     }
 
     public void setEdad(int edad) {
         this.edad = edad;
-    }
-
-    public void setMascotas(Mascota[] mascotas) {
-        this.mascotas = mascotas;
     }
 
     public Persona(int id, String nombre, String apellido, int edad, int dni) {
@@ -36,6 +38,7 @@ public class Persona {
         this.apellido = apellido;
         this.edad = edad;
         this.dni = dni;
+        mascotas = new ArrayList();
     }
 
     public boolean estaLaMascota(String nombre) {
@@ -50,4 +53,5 @@ public class Persona {
         return this.edad > edad;
     }
 }
+
 
