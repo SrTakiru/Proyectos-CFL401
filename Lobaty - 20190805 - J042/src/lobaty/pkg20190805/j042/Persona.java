@@ -42,16 +42,20 @@ public class Persona {
     }
 
     public boolean estaLaMascota(String nombre) {
-        return;
+        for (Mascota mascota : mascotas) {
+            if (mascota.getNombre().equals(nombre)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public int cuantasMascotasTenes() {
-        return;
+        return mascotas.size();
     }
 
     public boolean sosMayorA(int edad) {
         return this.edad > edad;
     }
 }
-
 
