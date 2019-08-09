@@ -15,6 +15,11 @@ public class Mascota {
     private int edad;
     private int patas;
     private String tipo;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;
@@ -37,6 +42,7 @@ public class Mascota {
         this.edad = edad;
         this.patas = patas;
         this.tipo = tipo;
+        this.id = id;
     }
 
     public boolean sosMayorA(int edad) {
@@ -44,4 +50,6 @@ public class Mascota {
         return this.edad > edad;
     }
 }
+
+
 

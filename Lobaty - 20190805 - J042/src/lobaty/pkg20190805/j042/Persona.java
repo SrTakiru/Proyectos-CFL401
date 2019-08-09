@@ -20,11 +20,11 @@ public class Persona {
     private int dni;
     private ArrayList<Mascota> mascotas;
 
-    public ArrayList<Mascota> getMascotas() {
+    public ArrayList<Mascota> getMascota() {
         return mascotas;
     }
 
-    public void setMascotas(Mascota mascota) {
+    public void setMascota(Mascota mascota) {
         this.mascotas.add(mascota);
     }
 
@@ -58,4 +58,5 @@ public class Persona {
         return this.edad > edad;
     }
 }
+
 
