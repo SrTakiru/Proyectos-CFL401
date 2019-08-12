@@ -40,8 +40,11 @@ public class Animales {
     }
 
     public void comer(String nomComida) {
-        energia += 15;
+        if (nomComida.equals("comidaRaza") && energia + 15 < 100) {
+            energia += 15;
+        } else if (nomComida.equals("sabrocito") && energia + 10 < 100) {
+            energia += 10;
+        }
     }
 }
-
 

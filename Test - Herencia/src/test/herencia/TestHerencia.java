@@ -15,8 +15,23 @@ public class TestHerencia {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Perros boby = new Perros("Boby", 4, 100);
+        Gatos mish = new Gatos("Mish", 4, 100);
+        Aves julio = new Aves("Julio", 2, 2, 100);
+
+        System.out.println(mish.energia);
+        mish.correr();
+        mish.correr();
+        mish.correr();
+        mish.jugar();
+        System.out.println(mish.energia);
+        mish.comer("sabrocito");
+        System.out.println(mish.energia);
 
     }
 
 }
+
+
+
 

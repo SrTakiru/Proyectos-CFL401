@@ -39,12 +39,16 @@ public class Aves extends Animales {
     }
 
     public void volar() {
-        energia -= 10;
+        if (energia - 10 > 0) {
+            energia -= 10;
+        }
     }
 
     @Override
     public void comer(String nomComida) {
-
+        if (nomComida.equals("alpiste") && energia + 10 < 100) {
+            energia += 10;
+        }
     }
 }
 

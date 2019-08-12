@@ -28,18 +28,18 @@ public class Perros extends Animales {
         this.cantPelos = cantPelos;
     }
 
-    public void correr(int energia) {
-        energia -= 10;
+    public void correr() {
+
+        if (energia - 10 > 0) {
+            energia -= 10;
+
+        }
     }
 
-    public void jugar(int energia) {
-        if (energia > 15) {
+    public void jugar() {
+        if (energia - 15 > 0) {
             energia -= 15;
-        } else {
-            System.out.println("No tiene energia.");
         }
-
     }
 }
-
 

@@ -20,17 +20,15 @@ public class Gatos extends Animales {
         this.energia = 100;
     }
 
-    private void correr() {
-        if (energia > 5) {
+    public void correr() {
+        if (energia - 5 > 0) {
             energia -= 5;
         }
     }
 
-    private void jugar() {
-        if (energia > 10) {
-
+    public void jugar() {
+        if (energia - 10 > 0) {
             energia -= 10;
-
         }
     }
 }
