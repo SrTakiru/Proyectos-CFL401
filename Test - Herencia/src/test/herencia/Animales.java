@@ -39,8 +39,9 @@ public class Animales {
         this.energia = energia;
     }
 
-    public void comer() {
-
+    public void comer(String nomComida) {
+        energia += 15;
     }
 }
+
 

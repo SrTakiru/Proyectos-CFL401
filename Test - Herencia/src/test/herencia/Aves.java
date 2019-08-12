@@ -39,8 +39,12 @@ public class Aves extends Animales {
     }
 
     public void volar() {
-
+        energia -= 10;
     }
 
+    @Override
+    public void comer(String nomComida) {
+
+    }
 }
 

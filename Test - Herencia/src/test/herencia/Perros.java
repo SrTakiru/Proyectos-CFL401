@@ -29,11 +29,17 @@ public class Perros extends Animales {
     }
 
     public void correr(int energia) {
-
+        energia -= 10;
     }
 
     public void jugar(int energia) {
+        if (energia > 15) {
+            energia -= 15;
+        } else {
+            System.out.println("No tiene energia.");
+        }
 
     }
 }
+
 
