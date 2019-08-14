@@ -49,16 +49,26 @@ public class Gatos extends Animales {
                 System.out.println(energia);
                 break;
             case 2:
-                System.out.println("X2");
+                if (perro.getEnergia() > 10) {
+                    perro.setEnergia(energia -= 10);
+                }
                 break;
             case 3:
-                System.out.println("X3");
+                perro.setEnergia(0);
+
+                if (vidas > 0) {
+                    vidas--;
+                    energia = 1;
+                } else if (vidas == 0) {
+                    energia = 0;
+                }
                 break;
             case 4:
-                System.out.println("X4");
+                energia -= chances;
                 break;
             case 5:
-                System.out.println("X5");
+                perro.setEnergia(energia -= 10);
+                energia -= 10;
                 break;
             default:
                 break;

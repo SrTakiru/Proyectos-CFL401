@@ -20,10 +20,12 @@ public class TestHerencia {
         Aves julio = new Aves("Julio", 2, 2, 100);
 
         mish.jugarCon(boby);
+        System.out.println(boby.energia);
 
     }
 
 }
+
 
 
 
