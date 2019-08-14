@@ -14,6 +14,14 @@ public class Animales {
     protected String nombre;
     protected int patas;
     protected int energia;
+    protected int vidas;
+
+    public Animales(String nombre, int patas, int energia, int vidas) {
+        this.nombre = nombre;
+        this.patas = patas;
+        this.energia = energia;
+        this.vidas = vidas;
+    }
 
     public String getNombre() {
         return nombre;
@@ -45,6 +53,19 @@ public class Animales {
         } else if (nomComida.equals("sabrocito") && energia + 10 < 100) {
             energia += 10;
         }
+
+    }
+
+    public void dormir(int horas) {
+        int i = 0;
+        while ((energia + 2) <= 100 && i <= horas) {
+            energia += 2;
+            i++;
+        }
+    }
+
+    public void restarUnaVida() {
+        vidas -= 1;
     }
 }
 

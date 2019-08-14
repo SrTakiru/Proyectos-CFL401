@@ -15,11 +15,9 @@ public class Aves extends Animales {
     private int cantPlumas;
 
     public Aves(String nombre, int patas, int alas, int cantPlumas) {
-        this.nombre = nombre;
-        this.patas = patas;
+        super(nombre, patas, 100,1);
         this.alas = alas;
         this.cantPlumas = cantPlumas;
-        this.energia = 100;
     }
 
     public int getAlas() {
@@ -51,4 +49,5 @@ public class Aves extends Animales {
         }
     }
 }
+
 

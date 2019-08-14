@@ -14,10 +14,8 @@ public class Perros extends Animales {
     private int cantPelos;
 
     public Perros(String nombre, int patas, int cantPelos) {
-        this.nombre = nombre;
-        this.patas = patas;
+        super(nombre, patas, 100,1);
         this.cantPelos = cantPelos;
-        this.energia = 100;
     }
 
     public int getCantPelos() {
@@ -42,4 +40,5 @@ public class Perros extends Animales {
         }
     }
 }
+
 
