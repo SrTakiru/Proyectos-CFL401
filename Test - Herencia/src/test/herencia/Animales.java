@@ -67,5 +67,9 @@ public class Animales {
     public void restarUnaVida() {
         vidas -= 1;
     }
+
+    public void restarEnergia(int energia) {
+        this.energia -= energia;
+    }
 }
 
