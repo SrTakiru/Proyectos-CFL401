@@ -19,8 +19,16 @@ public class GestionPersonal {
         menuPrincipal.setVisible(true);
     }
 
-    public static void cambiarVentana(){
-        
+    public static void generarArea() {
+        menuPrincipal.setVisible(false);
+        cargaUsuarios.setVisible(false);
+        generarTablas.setVisible(true);
+    }
+
+    public static void cargarUsuario() {
+        menuPrincipal.setVisible(false);
+        cargaUsuarios.setVisible(true);
+        generarTablas.setVisible(false);
     }
 }
 
