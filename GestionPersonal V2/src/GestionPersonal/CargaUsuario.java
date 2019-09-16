@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class CargaUsuario extends javax.swing.JFrame {
 
+    
     public static boolean primerUsuario = primerUsuario();
 
     public CargaUsuario() {
@@ -22,7 +23,7 @@ public class CargaUsuario extends javax.swing.JFrame {
             btnAtras.setVisible(false);
         } else {
             initComponents();
-        }
+        }        
     }
 
     /**

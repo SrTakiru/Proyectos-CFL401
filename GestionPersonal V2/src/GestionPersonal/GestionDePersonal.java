@@ -88,3 +88,6 @@ public class GestionDePersonal {
         ventanaCU.setVisible(false);
     }
 }
+
+
+

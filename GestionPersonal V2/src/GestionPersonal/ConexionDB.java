@@ -35,6 +35,7 @@ public class ConexionDB {
                 + baseDeDatos + "?user="
                 + usuario + "&password="
                 + contrasenia);
+        //"jdbc:mariadb://localhost:3306/cfl401?user=programador&password=cfl401"
         flujoConexion = conexion.createStatement();
     }
 
@@ -54,5 +55,22 @@ public class ConexionDB {
         }
     }
 
+    public int actualizar(String tabla, String valoresNuevos, String condicion) throws SQLException {
+        return flujoConexion.executeUpdate("UPDATE " + tabla + " SET " + valoresNuevos + " WHERE " + condicion + " ;");
+    }
+
+    public void cerrarConexion() throws SQLException {
+        if (flujoConexion != null) {
+
+            flujoConexion.close();
+        }
+        if (conexion != null) {
+
+            conexion.close();
+        }
+
+    }
 }
+
+
 
