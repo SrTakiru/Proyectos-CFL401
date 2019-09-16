@@ -20,6 +20,3 @@ public class Lobaty20190826BaseDeDatos {
     }
 }
 
-
-
-
