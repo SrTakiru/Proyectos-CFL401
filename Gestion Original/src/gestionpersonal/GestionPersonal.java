@@ -7,13 +7,16 @@ public class GestionPersonal {
     private static MenuPrincipal menuPrincipal;
     private static GenerarTablas generarTablas;
     private static CargaUsuarios cargaUsuarios;
+    private static TestVentana testVentana;
 
     public static void main(String[] args) throws SQLException {
+
         menuPrincipal = new MenuPrincipal();
         cargaUsuarios = new CargaUsuarios();
         generarTablas = new GenerarTablas();
+        testVentana = new TestVentana();
         
-        menuPrincipal.setVisible(true);
+        testVentana.setVisible(true);
     }
 
     public static void generarArea() {
@@ -27,8 +30,6 @@ public class GestionPersonal {
         cargaUsuarios.setVisible(true);
         generarTablas.setVisible(false);
     }
-    
-    
-}
 
+}
 
