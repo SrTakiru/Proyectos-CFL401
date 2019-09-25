@@ -6,8 +6,6 @@
 package gestióndepersonal;
 
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -161,7 +159,7 @@ public class DatosDeConexion extends javax.swing.JFrame {
 
     private void btbConectarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbConectarMouseClicked
 
-        String ip = fieldIp.getText();
+      String ip = fieldIp.getText();
         String puerto = fieldPuerto.getText();
         String db = fieldDB.getText();
         String usuario = fieldUsuario.getText();
@@ -175,17 +173,16 @@ public class DatosDeConexion extends javax.swing.JFrame {
                 //testVentana ventana = new testVentana(true); //Mandandole este parámetro informo a la clase testVentana que la conexión se realizó y entonces es posible habilitar el JFrame.
                 GestionDePersonal.getTestVentana().setVisible(true);
                 GestionDePersonal.getTestVentana().Activar();
-                
-            }
-            else{
-            
+
+            } else {
+
                 System.out.println("No se conectó");
             }
 
         } catch (SQLException ex) {
             System.out.println("No se creó el objeto");;
         }
-
+        
 
     }//GEN-LAST:event_btbConectarMouseClicked
 

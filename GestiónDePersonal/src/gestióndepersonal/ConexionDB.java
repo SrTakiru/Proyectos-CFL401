@@ -30,8 +30,6 @@ public class ConexionDB {
         this.baseDeDatos = baseDeDatos;
         this.usuario = usuario;
         this.contrasenia = contrasenia;
-        //conexion = DriverManager.getConnection("jdbc:mariadb://"+ip+":"+puerto+"/"+baseDeDatos+"?user="+usuario+"&password"+contrasenia);
-        //flujoConexion = conexion.createStatement();
 
     }
 
@@ -82,17 +80,16 @@ public class ConexionDB {
     }
 
     public boolean conectarADB() {
-
         try {
-
             conexion = DriverManager.getConnection("jdbc:mariadb://" + ip + ":" + puerto + "/" + baseDeDatos + "?user=" + usuario + "&password=" + contrasenia);
             flujoConexion = conexion.createStatement();
+
             return true;
         } catch (SQLException e) {
-
             return false;
         }
 
     }
 
 }
+
