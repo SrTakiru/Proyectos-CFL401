@@ -5,11 +5,15 @@
  */
 package gestióndepersonal;
 
+import java.awt.Color;
+
 /**
  *
  * @author Programación
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+
+   
 
     /**
      * Creates new form ventanaPrincipal
@@ -28,6 +32,9 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         pantallaPrincipal = new javax.swing.JPanel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        Archivos = new javax.swing.JMenu();
+        Ayuda = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(250, 350));
@@ -38,6 +45,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         pantallaPrincipal.setPreferredSize(new java.awt.Dimension(250, 350));
         pantallaPrincipal.setLayout(new java.awt.BorderLayout());
         getContentPane().add(pantallaPrincipal, java.awt.BorderLayout.CENTER);
+
+        Archivos.setText("File");
+        jMenuBar1.add(Archivos);
+
+        Ayuda.setText("Edit");
+        jMenuBar1.add(Ayuda);
+
+        setJMenuBar(jMenuBar1);
 
         pack();
         setLocationRelativeTo(null);
@@ -80,7 +95,13 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Archivos;
+    private javax.swing.JMenu Ayuda;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel pantallaPrincipal;
     // End of variables declaration//GEN-END:variables
-}
 
+    public void mostraElLogin() {
+        pantallaPrincipal.add(new PanelLogin());
+    }
+}

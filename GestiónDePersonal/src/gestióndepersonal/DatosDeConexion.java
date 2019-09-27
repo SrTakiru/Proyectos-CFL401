@@ -55,6 +55,13 @@ public class DatosDeConexion extends javax.swing.JFrame {
 
         jLabel5.setText("Contraseña");
 
+        fieldPuerto.setText("3306");
+
+        fieldDB.setText("proyecto_joinsystem");
+
+        fieldUsuario.setText("programador");
+
+        fieldIp.setText("192.168.0.217");
         fieldIp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldIpActionPerformed(evt);
@@ -179,8 +186,8 @@ public class DatosDeConexion extends javax.swing.JFrame {
                 System.out.println("Se creó correctamente");
                 setVisible(false);
                 //testVentana ventana = new TestVentana(true); //Mandandole este parámetro informo a la clase TestVentana que la conexión se realizó y entonces es posible habilitar el JFrame.
-                GestionDePersonal.getTestVentana().setVisible(true);
-                GestionDePersonal.getTestVentana().Activar();
+                GestionDePersonal.MenuPrincipal();
+                //GestionDePersonal.getTestVentana().Activar();
 
             } else {
 

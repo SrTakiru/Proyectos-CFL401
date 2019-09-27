@@ -5,6 +5,7 @@
  */
 package gestióndepersonal;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,8 @@ public class GestionDePersonal {
     private static TestVentana testVentana;
     private static ConexionDB conexionDB;
     private static VentanaPrincipal ventanaPrincipal;
+    private static PanelLogin panelLogin;
+    private static DatosDeConexion datosDeConexion;
 
     public static ConexionDB getConexionDB() {
         return conexionDB;
@@ -37,13 +40,10 @@ public class GestionDePersonal {
         cargarUsuario = new CargaUsuario(primerUsuario());
         generarTablas = new GenerarTablas();
         testVentana = new TestVentana();
-
         ventanaPrincipal = new VentanaPrincipal();
 
-        ventanaPrincipal.setTitle("Proyecto JoinSystems");
-        ventanaPrincipal.setSize(300, 400);
-        ventanaPrincipal.setVisible(true);
-        ventanaPrincipal.add
+        MenuPrincipal();
+
 
         /*
         
@@ -126,12 +126,18 @@ public class GestionDePersonal {
         return testVentana;
     }
 
+    public static void MenuPrincipal() {
+        ventanaPrincipal.setTitle("Proyecto JoinSystems");
+        ventanaPrincipal.setLocationRelativeTo(null);
+        ventanaPrincipal.setSize(300, 400);
+        ventanaPrincipal.mostraElLogin();
+        ventanaPrincipal.setVisible(true);
+        ventanaPrincipal.setResizable(false);
+    }
+
+    public static void ocultarVentanaPrincipal(){
+        ventanaPrincipal.setVisible(false);
+    }
 }
-
-
-
-
-
-
 
 
