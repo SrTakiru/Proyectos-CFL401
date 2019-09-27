@@ -50,9 +50,10 @@ public class ConexionDB {
 
         if (columnas == null) {
             flujoConexion.execute("INSERT INTO " + tabla + " VALUES(" + valores + ") " + condiciones + ";");
+            System.out.println("INSERT INTO " + tabla + " VALUES(" + valores + ") " + condiciones + ";");
         } else {
             flujoConexion.execute("INSERT INTO " + tabla + "(" + columnas + ")" + " VALUES(" + valores + ") " + condiciones + ";");
-
+            System.out.println("INSERT INTO " + tabla + "(" + columnas + ")" + " VALUES(" + valores + ") " + condiciones + ";");
         }
 
     }
@@ -91,5 +92,19 @@ public class ConexionDB {
 
     }
 
+    public void borrar(String tabla, String condicion) throws SQLException {
+        flujoConexion.execute("DELETE FROM " + tabla + " WHERE " + condicion + " ;");
+    }
+
+    public boolean existe(String tabla, String valor) {
+        try {
+            return flujoConexion.execute("IF EXIST (SELECT * FROM " + tabla + " WHERE " + valor + ";");
+
+        } catch (SQLException e) {
+
+            return false;
+        }
+
+    }
 }
 

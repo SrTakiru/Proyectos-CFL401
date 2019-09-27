@@ -178,7 +178,7 @@ public class DatosDeConexion extends javax.swing.JFrame {
             if (GestionDePersonal.getConexionDB().conectarADB()) {
                 System.out.println("Se creó correctamente");
                 setVisible(false);
-                //testVentana ventana = new testVentana(true); //Mandandole este parámetro informo a la clase testVentana que la conexión se realizó y entonces es posible habilitar el JFrame.
+                //testVentana ventana = new TestVentana(true); //Mandandole este parámetro informo a la clase TestVentana que la conexión se realizó y entonces es posible habilitar el JFrame.
                 GestionDePersonal.getTestVentana().setVisible(true);
                 GestionDePersonal.getTestVentana().Activar();
 
