@@ -14,12 +14,12 @@ import java.util.logging.Logger;
  *
  * @author CFL 401
  */
-public class TestVentana extends javax.swing.JFrame {
+public class TestVentana1 extends javax.swing.JFrame {
 
     /**
      * Creates new form testVentana
      */
-    public TestVentana() {
+    public TestVentana1() {
         initComponents();
 
     }
@@ -438,7 +438,7 @@ public class TestVentana extends javax.swing.JFrame {
                 btnConectar.setText("Conectar");
                 textoEstado.setText("Desconectado");
             } catch (SQLException ex) {
-                Logger.getLogger(TestVentana.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(TestVentana1.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -529,21 +529,23 @@ public class TestVentana extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TestVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestVentana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TestVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestVentana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TestVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestVentana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TestVentana.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TestVentana1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TestVentana().setVisible(true);
+                new TestVentana1().setVisible(true);
             }
         });
     }

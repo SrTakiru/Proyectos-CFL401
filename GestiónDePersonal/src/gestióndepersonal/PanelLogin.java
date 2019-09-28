@@ -5,6 +5,11 @@
  */
 package gestióndepersonal;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Programación
@@ -35,7 +40,7 @@ public class PanelLogin extends javax.swing.JPanel {
         btnInsert = new javax.swing.JButton();
         btnConfig = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        estado = new javax.swing.JLabel();
 
         setMaximumSize(new java.awt.Dimension(250, 350));
         setMinimumSize(new java.awt.Dimension(250, 350));
@@ -55,6 +60,11 @@ public class PanelLogin extends javax.swing.JPanel {
         jLabel3.setText("Contraseña");
 
         btnInsert.setText("Ingresar");
+        btnInsert.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnInsertMouseClicked(evt);
+            }
+        });
 
         btnConfig.setText("Configuración");
         btnConfig.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -65,8 +75,8 @@ public class PanelLogin extends javax.swing.JPanel {
 
         btnCancel.setText("Cancelar");
 
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("Desconectado");
+        estado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        estado.setText("Desconectado");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -83,7 +93,7 @@ public class PanelLogin extends javax.swing.JPanel {
                     .addComponent(btnCancel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnInsert, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(password)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(estado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -106,7 +116,7 @@ public class PanelLogin extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(btnConfig)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(estado)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -118,15 +128,31 @@ public class PanelLogin extends javax.swing.JPanel {
         conexion.setVisible(true);
     }//GEN-LAST:event_btnConfigMouseClicked
 
+    private void btnInsertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseClicked
+        // TODO add your handling code here:
+        ResultSet resultado;
+        String usuario = user.getText();
+        String contrasenia = password.getText();
+        try {
+            System.out.println("SELECT * FROM accesos WHERE usuario='" + usuario + "', contrasenia='" + contrasenia + "';");
+
+            resultado = GestionDePersonal.getConexionDB().consultar("SELECT * FROM accesos WHERE usuario='" + usuario + "', contrasenia='" + contrasenia + "';");
+           System.out.println(resultado.next());
+           
+        } catch (SQLException ex) {
+
+        }
+    }//GEN-LAST:event_btnInsertMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancel;
     private javax.swing.JButton btnConfig;
     private javax.swing.JButton btnInsert;
+    private javax.swing.JLabel estado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField password;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
