@@ -17,7 +17,7 @@ public class GestionDePersonal {
     private static MenuPrincipal menuPrincipal;
     private static CargaUsuario cargarUsuario;
     private static GenerarTablas generarTablas;
-    private static TestVentana testVentana;
+    private static ProyectoTest testVentana;
     private static ConexionDB conexionDB;
     private static VentanaPrincipal ventanaPrincipal;
     private static PanelLogin panelLogin;
@@ -39,7 +39,7 @@ public class GestionDePersonal {
         menuPrincipal = new MenuPrincipal();
         cargarUsuario = new CargaUsuario(primerUsuario());
         generarTablas = new GenerarTablas();
-        testVentana = new TestVentana();
+        testVentana = new ProyectoTest();
         ventanaPrincipal = new VentanaPrincipal();
 
         MenuPrincipal();
@@ -122,7 +122,7 @@ public class GestionDePersonal {
 
     }
 
-    public static TestVentana getTestVentana() {
+    public static ProyectoTest getTestVentana() {
         return testVentana;
     }
 
