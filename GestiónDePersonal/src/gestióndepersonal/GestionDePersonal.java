@@ -5,7 +5,6 @@
  */
 package gestióndepersonal;
 
-import java.awt.Color;
 import javax.swing.JOptionPane;
 
 /**
@@ -73,7 +72,7 @@ public class GestionDePersonal {
         }*/
     }
 
-    public static void cambiarVentana(String nombre) {
+     public static void cambiarVentana(String nombre) {
 
         switch (nombre) {
 
@@ -101,7 +100,6 @@ public class GestionDePersonal {
         }
 
     }
-
     public static void ocultarVentana() {
 
         menuPrincipal.setVisible(false);
@@ -135,9 +133,19 @@ public class GestionDePersonal {
         ventanaPrincipal.setResizable(false);
     }
 
-    public static void ocultarVentanaPrincipal(){
+    public static void ocultarVentanaPrincipal() {
         ventanaPrincipal.setVisible(false);
     }
+
+    public static void PanelOpciones() {
+        ventanaPrincipal.deletComp();
+        ventanaPrincipal.mostrarOpciones();
+
+    }
 }
+
+
+
+
 
 

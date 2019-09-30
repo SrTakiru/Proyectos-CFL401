@@ -43,6 +43,7 @@ public class ConexionDB {
     public ResultSet consultar(String consulta) throws SQLException {
 
         return flujoConexion.executeQuery(consulta);
+        
 
     }
 
@@ -107,4 +108,5 @@ public class ConexionDB {
 
     }
 }
+
 

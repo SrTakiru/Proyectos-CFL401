@@ -72,6 +72,11 @@ public class PanelLogin extends javax.swing.JPanel {
         });
 
         btnCancel.setText("Cancelar");
+        btnCancel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCancelMouseClicked(evt);
+            }
+        });
 
         estado.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         estado.setText("Desconectado");
@@ -120,34 +125,17 @@ public class PanelLogin extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfigMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnConfigMouseClicked
-        DatosDeConexion conexion = new DatosDeConexion();
-        GestionDePersonal.getConexionDB();
-        GestionDePersonal.ocultarVentanaPrincipal();
-        conexion.setVisible(true);
-        estado.setText("Conectado");
+        nuevaConexion();
     }//GEN-LAST:event_btnConfigMouseClicked
 
     private void btnInsertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseClicked
-        try {
-            // TODO add your handling code here:
-            String usuario = user.getText();
-            String contrasenia = password.getText();
-            ResultSet resultado;
-            resultado = GestionDePersonal.getConexionDB().consultar("SELECT * FROM userandpass WHERE usuario='" + usuario + "' AND contrasenia='" + contrasenia + "';");
-            System.out.println("SELECT * FROM userandpass WHERE usuario='" + usuario + "' AND contrasenia='" + contrasenia + "';");
-            if (resultado.next()) {
-                estado.setText("El login se ah realizado con existo");
-                user.setText("");
-                user.setEditable(false);
-                password.setText("");
-                password.setEditable(false);
-            } else {
-                estado.setText("El usuario o contraseña son erroneos.");
-            }
-        } catch (SQLException ex) {
-            
-        }
+        consultar();
     }//GEN-LAST:event_btnInsertMouseClicked
+
+    private void btnCancelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelMouseClicked
+        // TODO add your handling code here:
+        cerrarTodo();
+    }//GEN-LAST:event_btnCancelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -161,4 +149,51 @@ public class PanelLogin extends javax.swing.JPanel {
     private javax.swing.JTextField password;
     private javax.swing.JTextField user;
     // End of variables declaration//GEN-END:variables
+
+    private void consultar() {
+
+        String usuario = user.getText();
+        String contrasenia = password.getText();
+        ResultSet resultado;
+
+        if (!user.getText().isEmpty() && !password.getText().isEmpty()) {
+            try {
+                resultado = GestionDePersonal.getConexionDB().consultar("SELECT * FROM accesos WHERE usuario='" + usuario + "' AND contrasenia='" + contrasenia + "';");
+                if (resultado.next()) {
+                    /*  estado.setText("Login Correcto");
+                    user.setText("");
+                    user.setEditable(false);
+                    password.setText("");
+                    password.setEditable(false);
+                    btnInsert.setText("Cerrar Sesión");
+                     */
+                    GestionDePersonal.PanelOpciones();
+                } else {
+                    user.setText("");
+                    password.setText("");
+                    estado.setText("El usuario o contraseña son erroneos.");
+
+                }
+            } catch (SQLException ex) {
+            }
+        }
+    }
+
+    private void nuevaConexion() {
+        DatosDeConexion conexion = new DatosDeConexion();
+        GestionDePersonal.ocultarVentanaPrincipal();
+        conexion.setVisible(true);
+        estado.setText("Conectado");
+    }
+
+    private void cerrarTodo() {
+        if (GestionDePersonal.getConexionDB() != null) {
+            try {
+                GestionDePersonal.getConexionDB().cerrarConex();
+                System.exit(0);
+            } catch (SQLException ex) {
+            }
+        }
+
+    }
 }

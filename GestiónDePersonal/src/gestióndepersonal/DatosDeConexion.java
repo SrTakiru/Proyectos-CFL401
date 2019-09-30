@@ -44,6 +44,7 @@ public class DatosDeConexion extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("IP");
 
@@ -57,16 +58,18 @@ public class DatosDeConexion extends javax.swing.JFrame {
 
         fieldPuerto.setText("3306");
 
-        fieldDB.setText("proyecto_joinsystem");
+        fieldDB.setText("cyro");
 
-        fieldUsuario.setText("programador");
+        fieldUsuario.setText("cyro");
 
-        fieldIp.setText("192.168.0.217");
+        fieldIp.setText("192.168.0.8");
         fieldIp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldIpActionPerformed(evt);
             }
         });
+
+        fieldContraseña.setText("cyro");
 
         btbConectar.setText("Conectar");
         btbConectar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -160,7 +163,7 @@ public class DatosDeConexion extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,8 +171,6 @@ public class DatosDeConexion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void fieldIpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldIpActionPerformed
-
-
     }//GEN-LAST:event_fieldIpActionPerformed
 
     private void btbConectarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btbConectarMouseClicked
@@ -183,7 +184,6 @@ public class DatosDeConexion extends javax.swing.JFrame {
         try {
             GestionDePersonal.setConexionDB(new ConexionDB(ip, puerto, db, usuario, contrasenia));
             if (GestionDePersonal.getConexionDB().conectarADB()) {
-                System.out.println("Se creó correctamente");
                 setVisible(false);
                 //testVentana ventana = new TestVentana(true); //Mandandole este parámetro informo a la clase TestVentana que la conexión se realizó y entonces es posible habilitar el JFrame.
                 GestionDePersonal.MenuPrincipal();
@@ -255,5 +255,4 @@ public class DatosDeConexion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
 }

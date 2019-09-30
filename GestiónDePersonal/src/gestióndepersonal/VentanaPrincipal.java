@@ -5,13 +5,13 @@
  */
 package gestióndepersonal;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author Programación
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
-
-   
 
     /**
      * Creates new form ventanaPrincipal
@@ -99,6 +99,32 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     public void mostraElLogin() {
+        for (int i = 0; i < pantallaPrincipal.getComponentCount(); i++) {
+            if (!(pantallaPrincipal.getComponent(i) instanceof PanelLogin)) {
+                pantallaPrincipal.remove(i);
+
+            }
+        }
         pantallaPrincipal.add(new PanelLogin());
     }
+
+    public void deletComp() {
+
+        for (int i = 0; i < pantallaPrincipal.getComponentCount(); i++) {
+            pantallaPrincipal.remove(i);
+        }
+
+    }
+
+    public void mostrarOpciones() {
+        setExtendedState(JFrame.MAXIMIZED_BOTH);
+        for (int i = 0; i < pantallaPrincipal.getComponentCount(); i++) {
+            if (pantallaPrincipal.getComponent(i) instanceof PanelLogin) {
+                pantallaPrincipal.remove(i);
+
+            }
+        }
+        System.out.println(pantallaPrincipal.getComponentCount());
+    }
+
 }

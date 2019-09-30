@@ -35,6 +35,7 @@ public class PanelOpciones extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         contenido = new javax.swing.JPanel();
 
+        setPreferredSize(new java.awt.Dimension(400, 310));
         setLayout(new java.awt.BorderLayout());
 
         jButton1.setText("Carga Personal");
@@ -44,6 +45,11 @@ public class PanelOpciones extends javax.swing.JPanel {
         jButton3.setText("Datos Area");
 
         jButton4.setText("Cerrar sesión");
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton4MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
@@ -67,7 +73,7 @@ public class PanelOpciones extends javax.swing.JPanel {
                 .addComponent(jButton2)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 124, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 136, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addContainerGap())
         );
@@ -78,17 +84,21 @@ public class PanelOpciones extends javax.swing.JPanel {
         contenido.setLayout(contenidoLayout);
         contenidoLayout.setHorizontalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 256, Short.MAX_VALUE)
         );
         contenidoLayout.setVerticalGroup(
             contenidoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 297, Short.MAX_VALUE)
+            .addGap(0, 309, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(contenido);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
+        GestionDePersonal.MenuPrincipal();
+    }//GEN-LAST:event_jButton4MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
