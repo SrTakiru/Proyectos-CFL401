@@ -7,8 +7,6 @@ package gestióndepersonal;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -126,21 +124,28 @@ public class PanelLogin extends javax.swing.JPanel {
         GestionDePersonal.getConexionDB();
         GestionDePersonal.ocultarVentanaPrincipal();
         conexion.setVisible(true);
+        estado.setText("Conectado");
     }//GEN-LAST:event_btnConfigMouseClicked
 
     private void btnInsertMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnInsertMouseClicked
-        // TODO add your handling code here:
-        ResultSet resultado;
-        String usuario = user.getText();
-        String contrasenia = password.getText();
         try {
-            System.out.println("SELECT * FROM accesos WHERE usuario='" + usuario + "', contrasenia='" + contrasenia + "';");
-
-            resultado = GestionDePersonal.getConexionDB().consultar("SELECT * FROM accesos WHERE usuario='" + usuario + "', contrasenia='" + contrasenia + "';");
-           System.out.println(resultado.next());
-           
+            // TODO add your handling code here:
+            String usuario = user.getText();
+            String contrasenia = password.getText();
+            ResultSet resultado;
+            resultado = GestionDePersonal.getConexionDB().consultar("SELECT * FROM userandpass WHERE usuario='" + usuario + "' AND contrasenia='" + contrasenia + "';");
+            System.out.println("SELECT * FROM userandpass WHERE usuario='" + usuario + "' AND contrasenia='" + contrasenia + "';");
+            if (resultado.next()) {
+                estado.setText("El login se ah realizado con existo");
+                user.setText("");
+                user.setEditable(false);
+                password.setText("");
+                password.setEditable(false);
+            } else {
+                estado.setText("El usuario o contraseña son erroneos.");
+            }
         } catch (SQLException ex) {
-
+            
         }
     }//GEN-LAST:event_btnInsertMouseClicked
 

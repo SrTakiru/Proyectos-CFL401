@@ -5,8 +5,6 @@
  */
 package gestióndepersonal;
 
-import java.awt.Color;
-
 /**
  *
  * @author Programación
@@ -38,7 +36,6 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(250, 350));
-        setPreferredSize(new java.awt.Dimension(250, 350));
 
         pantallaPrincipal.setMaximumSize(new java.awt.Dimension(250, 350));
         pantallaPrincipal.setMinimumSize(new java.awt.Dimension(250, 350));
